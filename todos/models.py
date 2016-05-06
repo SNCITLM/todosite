@@ -7,7 +7,7 @@ class Todo(models.Model):
         validators=[
             MaxValueValidator(100)
         ])
-    due_date = models.DateField()
+    due_date = models.DateField(default = '2017-1-1')
 
     def __str__(self):
         status = 'V' if self.completed else 'X'
