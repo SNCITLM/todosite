@@ -8,3 +8,6 @@ def index(request):
 
 def edit(request, todo_id):
     return HttpResponse('Hey, you want to edit todo %s' % todo_id)
+
+def about(request):
+    return HttpResponse("This site was created by Leonardo Hahn and Max Franke")
