@@ -6,7 +6,7 @@ from .models import Todo
 # This views renders all of the current todos on screen.
 def index(request):
     all_todos = Todo.objects.all()
-    context = { 'todos': all_todos }
+    context = { 'todo_list': all_todos }
     return render(request, 'todos/index.html', context)
 
 def edit(request, todo_id):

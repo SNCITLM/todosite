@@ -1,6 +1,16 @@
 {% extends "todos/base.html" %}
-
 {% block content %}
-<h1>Hey, this is the index view</h1>
-<button class="btn btn-primary">Bootstrap button</button>
+
+<h1 class="text-center">My Todos</h1>
+
+{% if todo_list %}
+<ul class="list-group">
+  {% for todo in todo_list %}
+  <li class="list-group-item">{{todo.description}}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<span>There are no Todos</span>
+{% endif %}
+
 {% endblock %}
