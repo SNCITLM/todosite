@@ -1,16 +1,51 @@
 {% extends "todos/base.html" %}
 {% block content %}
 
-<h1 class="text-center">My Todos</h1>
+<h1 class="text-center">Todos</h1>
 
 {% if todo_list %}
 <ul class="list-group">
   {% for todo in todo_list %}
-  <li class="list-group-item">{{todo.description}}</li>
+
+  <li class="list-group-item">
+    <div class="row">
+      <h4 class="col-sm-5 col-xs-5">
+        {{todo.description}}
+      </h4>
+
+      <h4 class="col-sm-4 col-xs-3">{{todo.due_date}}</h4>
+
+      <div class="col-sm-3 col-xs-4">
+        <div class="btn-group pull-right">
+          <a href="{% url 'todos.views.edit' todo_id=todo.pk %}" class="glyphicon glyphicon-pencil btn btn-default"></a>
+          <a class="glyphicon glyphicon-remove btn btn-default"></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        {% if todo.progress == 100 %}
+          <div class="progress" style="height:8px; margin-bottom:0px; margin-top:10px;"
+              data-toggle="tooltip" data-placement="bottom" title="{{todo.progress}}%">
+            <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{todo.progress}}%;"></div>
+          </div>
+        {% else %}
+          <div class="progress" style="height:8px; margin-bottom:0px; margin-top:10px;">
+            <div class="progress-bar progress-bar-info" role="progressbar" style="width: {{todo.progress}}%;"></div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </li>
+
   {% endfor %}
 </ul>
-{% else %}
-<span>There are no Todos</span>
-{% endif %}
 
+{% else %}
+
+<div class="alert alert-info" role="alert">
+  There are currently no Todos
+</div>
+
+{% endif %}
 {% endblock %}
