@@ -3,9 +3,25 @@
 
 <h1 class="text-center">Todos</h1>
 
+<!-- This is the delete Todo modal -->
+<div id="delete-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete this Todo?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-delete-todo" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button id="confirm-delete-todo" type="button" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% if todo_list %}
-
 
 
 <ul class="list-group">
@@ -22,7 +38,7 @@
       <div class="col-sm-3 col-xs-4">
         <div class="btn-group pull-right">
           <a href="{% url 'todos:edit' todo_id=todo.pk %}" class="glyphicon glyphicon-pencil btn btn-default"></a>
-          <a href="{% url 'todos:delete' todo_id=todo.pk %}" class="glyphicon glyphicon-remove btn btn-default"></a>
+          <a href="{% url 'todos:delete' todo_id=todo.pk %}" class="delete-button glyphicon glyphicon-remove btn btn-default"></a>
         </div>
       </div>
     </div>
