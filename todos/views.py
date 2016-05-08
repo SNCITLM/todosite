@@ -35,7 +35,7 @@ def save(request, todo_id):
     })
 
     new_progress = request.POST['progress']
-    if len(new_progress) == 0 or int(new_progress) < 0:
+    if len(new_progress) == 0 or 0 > int(new_progress) > 100:
         return render(request, 'todos/edit.html', {
             'todo': cur_todo,
             'error_message': "Progress can't be empty or negtive",
