@@ -19,7 +19,7 @@ def about(request):
 
 def save(request, todo_id):
     cur_todo = get_object_or_404(Todo, pk=todo_id)
-    
+
     new_description = request.POST['description']
     if len(new_description) == 0:
         return render(request, 'todos/edit.html', {
@@ -35,10 +35,10 @@ def save(request, todo_id):
     })
 
     new_progress = request.POST['progress']
-    if len(new_progress) == 0:
+    if len(new_progress) == 0 or int(new_progress) < 0:
         return render(request, 'todos/edit.html', {
             'todo': cur_todo,
-            'error_message': "Progress can't be empty",
+            'error_message': "Progress can't be empty or negtive",
     })
 
     try:
@@ -56,3 +56,6 @@ def save(request, todo_id):
 
     return HttpResponseRedirect(reverse ('todos:index'))
 
+def delete(request, todo_id):
+    Todo.objects.get(pk=todo_id).delete()
+    return HttpResponseRedirect(reverse ('todos:index'))

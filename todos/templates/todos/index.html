@@ -1,9 +1,16 @@
 {% extends "todos/base.html" %}
 {% block content %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <h1 class="text-center">Todos</h1>
 
+
 {% if todo_list %}
+
+
+
 <ul class="list-group">
   {% for todo in todo_list %}
 
@@ -18,7 +25,7 @@
       <div class="col-sm-3 col-xs-4">
         <div class="btn-group pull-right">
           <a href="{% url 'todos:edit' todo_id=todo.pk %}" class="glyphicon glyphicon-pencil btn btn-default"></a>
-          <a class="glyphicon glyphicon-remove btn btn-default"></a>
+          <a href="{% url 'todos:delete' todo_id=todo.pk %}" class="glyphicon glyphicon-remove btn btn-default"></a>
         </div>
       </div>
     </div>
