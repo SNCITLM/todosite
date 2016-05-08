@@ -59,3 +59,34 @@ def save(request, todo_id):
 def delete(request, todo_id):
     Todo.objects.get(pk=todo_id).delete()
     return HttpResponseRedirect(reverse ('todos:index'))
+
+def new(request):
+    return render(request, 'todos/new.html')
+
+def add(request):
+
+    new_description = request.POST['description']
+    if len(new_description) == 0:
+        return render(request, 'todos/edit.html', {
+            'todo': cur_todo,
+            'error_message': "Description can't be empty",
+    })
+
+    new_due_date = request.POST['due_date']
+    if len(new_due_date) == 0:
+        return render(request, 'todos/edit.html', {
+            'todo': cur_todo,
+            'error_message': "Due Date can't be empty",
+    })
+
+    try:
+        parsed_due_date = parse(new_due_date)
+    except ValueError :
+       return render(request, 'todos/edit.html', {
+            'todo': cur_todo,
+            'error_message': "Invalid Date",
+        })
+
+    new_todo = Todo(description=new_description,due_date=parsed_due_date)
+    new_todo.save()
+    return HttpResponseRedirect(reverse ('todos:index'))
