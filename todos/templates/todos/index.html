@@ -1,7 +1,7 @@
 {% extends "todos/base.html" %}
 {% block content %}
 
-<h1 class="text-center">Todos</h1>
+<h1 class="text-center">ToDo's</h1>
 
 <!-- This is the delete Todo modal -->
 <div id="delete-modal" class="modal fade">
@@ -27,7 +27,7 @@
 <ul class="list-group">
   {% for todo in todo_list %}
 
-  <li class="list-group-item">
+  <li class="list-group-item todo-list-item">
     <div class="row">
       <h4 class="col-sm-5 col-xs-5">
         {{todo.description}}
@@ -60,6 +60,8 @@
 
   {% endfor %}
 </ul>
+<a class="btn btn-default center-block" href="{% url 'todos:new' %}">Add</a>
+<a class="text-center center-block about-container" href="{% url 'todos:about' %}">Impressum</a>
 
 {% else %}
 

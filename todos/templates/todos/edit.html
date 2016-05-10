@@ -32,23 +32,28 @@
 </div>
 
 <div class="container">
-    <form action="{% url 'todos:save' todo.id %}" method="post">
+    <form action="{% url 'todos:edit' todo.id %}" method="post">
         {% csrf_token %}
         <div class="jumpotron">
             <div class="form-group">
-                <label for="usr">ToDo:</label>
-                <input type="text" name="description" id="description" value="{{ todo.description }}" />
+                <label for="usr">ToDo</label>
+                <input type="text" class="form-control" name="description" id="description" value="{{ todo.description }}" />
             </div>
             <div class="form-group">
-                <label for="usr">Due Date:</label>
-                <input type="text" name="due_date" id="due_date" value="{{ todo.due_date }}" />
+                <label for="usr">Due Date</label>
+                <input type="text" class="form-control" name="due_date" id="due_date" value="{{ todo.due_date }}" />
             </div>
             <div class="form-group">
-                <label for="usr">Progress:</label>
-                <input type="integer" name="progress" id="progress" value="{{ todo.progress }}" />
+                <label for="usr">Progress</label>
+                <input type="integer" class="form-control" name="progress" id="progress" value="{{ todo.progress }}" />
             </div>
         </div>
-        <input type="submit" value="Save" />
+        <div class="btn-group">
+          <a class="btn btn-default" href="{% url 'todos:index' %}">
+            <span class="glyphicon glyphicon-menu-left"></span>
+          </a>
+          <input class="btn btn-default" type="submit" value="Save" />
+        </div>
     </form>
 </div>
 {% endblock %}

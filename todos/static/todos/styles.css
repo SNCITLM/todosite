@@ -15,3 +15,11 @@
 .button-remove {
   color: red;
 }
+
+.todo-list-item:hover {
+  border-left: 3px solid #3399ff;
+}
+
+.about-container {
+  margin-top: 40px !important;
+}
