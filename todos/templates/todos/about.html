@@ -1,0 +1,9 @@
+{% extends 'todos/base.html' %}
+{% block content %}
+<div class="jumbotron">
+  <h2>Amazing ToDo</h2>
+  <h2><small>This site was created by Leonardo Hahn and Max Franke.</small></h2>
+
+</div>
+<a class="center-block text-center link-container" href="{% url 'todos:index' %}">Home</a>
+{% endblock %}

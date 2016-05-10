@@ -18,7 +18,7 @@ def edit(request, todo_id):
         return render(request, 'todos/edit.html', {'todo': current_todo})
 
 def about(request):
-    return HttpResponse("This site was created by Leonardo Hahn and Max Franke.")
+    return render(request, 'todos/about.html')
 
 def update_todo(request, todo):
     new_description = request.POST['description']

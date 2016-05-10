@@ -25,11 +25,15 @@
   margin-bottom: 7px;
 }
 
-.about-container {
+.link-container {
   margin-top: 40px;
 }
 
 .todo-add,
 .todo-list {
   max-width: 80%;
+}
+
+.link-container {
+  max-width: 10%;
 }

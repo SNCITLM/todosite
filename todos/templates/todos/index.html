@@ -1,7 +1,7 @@
 {% extends "todos/base.html" %}
 {% block content %}
 
-<h1 class="text-center">ToDo's</h1>
+<h1 class="text-center text-primary">ToDo's</h1>
 
 <!-- This is the delete Todo modal -->
 <div id="delete-modal" class="modal fade">
@@ -68,6 +68,6 @@
 </div>
 
 {% endif %}
-<a class="btn btn-default center-block todo-add" href="{% url 'todos:new' %}">Add</a>
-<a class="text-center center-block about-container" href="{% url 'todos:about' %}">Impressum</a>
+<a class="btn btn-primary center-block todo-add" href="{% url 'todos:new' %}">Add</a>
+<a class="text-center center-block link-container" href="{% url 'todos:about' %}">Impressum</a>
 {% endblock %}
