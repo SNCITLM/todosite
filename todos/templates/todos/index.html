@@ -24,7 +24,7 @@
 {% if todo_list %}
 
 
-<ul class="list-group">
+<ul class="center-block list-group todo-list">
   {% for todo in todo_list %}
 
   <li class="list-group-item todo-list-item">
@@ -60,8 +60,6 @@
 
   {% endfor %}
 </ul>
-<a class="btn btn-default center-block" href="{% url 'todos:new' %}">Add</a>
-<a class="text-center center-block about-container" href="{% url 'todos:about' %}">Impressum</a>
 
 {% else %}
 
@@ -70,4 +68,6 @@
 </div>
 
 {% endif %}
+<a class="btn btn-default center-block todo-add" href="{% url 'todos:new' %}">Add</a>
+<a class="text-center center-block about-container" href="{% url 'todos:about' %}">Impressum</a>
 {% endblock %}

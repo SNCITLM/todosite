@@ -16,10 +16,20 @@
   color: red;
 }
 
+.todo-list-item {
+  margin: 8px 0 8px 0;
+}
+
 .todo-list-item:hover {
-  border-left: 3px solid #3399ff;
+  border-left: 2px solid #3399ff;
+  margin-bottom: 7px;
 }
 
 .about-container {
-  margin-top: 40px !important;
+  margin-top: 40px;
+}
+
+.todo-add,
+.todo-list {
+  max-width: 80%;
 }
